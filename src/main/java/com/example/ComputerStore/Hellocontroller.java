@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("/")
 public class Hellocontroller {
     @GetMapping("test")
     public String index(Model model) {
@@ -17,7 +18,7 @@ public class Hellocontroller {
 
         return "index";
     }
-    @GetMapping("/api")
+    @GetMapping("api")
     public String Api(){
         return "this is api";
     }
