@@ -14,7 +14,7 @@ public class Hellocontroller {
     @GetMapping("test")
     public String index(Model model) {
         // Додайте дані моделі, якщо вони необхідні
-        model.addAttribute("message", "Привіт, світ!");
+        //model.addAttribute("message", "Привіт, світ!");
 
         return "index";
     }
