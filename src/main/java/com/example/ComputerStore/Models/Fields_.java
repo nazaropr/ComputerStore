@@ -14,7 +14,8 @@ import java.util.Date;
 @NoArgsConstructor
 
 public class Fields_ {
-
+    @Field
+    private Integer idm;
     @Field
     private String manufacturer;
     @Field
@@ -25,13 +26,4 @@ public class Fields_ {
     private Integer sellingPrice;
     @Field
     private Integer quantityInStock;
-
-    public Fields_(String manufacturer, String modelName, Integer purchasePrice, Integer sellingPrice, Integer quantityInStock) {
-
-        this.manufacturer = manufacturer;
-        this.modelName = modelName;
-        this.purchasePrice = purchasePrice;
-        this.sellingPrice = sellingPrice;
-        this.quantityInStock = quantityInStock;
-    }
 }

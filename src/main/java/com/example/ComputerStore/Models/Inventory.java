@@ -19,21 +19,37 @@ public class Inventory {
     @Id
     private ObjectId id;
     @Field
-    private List<Fields_> desktopComputers;
+    private String category;
     @Field
-    private List<Fields_> monitors;
+    private String subCategory;
     @Field
-    private List<Fields_> laptops;
+    private String manufacturer;
     @Field
-    private List<Fields_> tablets;
+    private String modelName;
     @Field
-    private List<Fields_> printers;
+    private Integer purchasePrice;
     @Field
-    private MemoryDeviceFields memoryDevices;
+    private Integer sellingPrice;
     @Field
-    private List<Fields_> processors;
-    @Field
-    private List<Fields_> powerSupplies;
-   @Field
-    private inputDeviceField inputDevices;
+    private Integer quantityInStock;
+
+    public Inventory(String category, String manufacturer, String modelName, Integer purchasePrice, Integer sellingPrice, Integer quantityInStock){
+        this.id = new ObjectId();
+        this.category = category;
+        this.manufacturer = manufacturer;
+        this.modelName = modelName;
+        this.purchasePrice = purchasePrice;
+        this.sellingPrice = sellingPrice;
+        this.quantityInStock = quantityInStock;
+    }
+    public Inventory(String category, String subCategory, String manufacturer, String modelName, Integer purchasePrice, Integer sellingPrice, Integer quantityInStock){
+        this.id = new ObjectId();
+        this.category = category;
+        this.subCategory = subCategory;
+        this.manufacturer = manufacturer;
+        this.modelName = modelName;
+        this.purchasePrice = purchasePrice;
+        this.sellingPrice = sellingPrice;
+        this.quantityInStock = quantityInStock;
+    }
 }
