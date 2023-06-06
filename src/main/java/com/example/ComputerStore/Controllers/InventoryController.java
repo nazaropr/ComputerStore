@@ -24,5 +24,5 @@ public class InventoryController {
     public ResponseEntity<Optional<Inventory>> getProductDetails(@PathVariable ObjectId id) {
         return new ResponseEntity<Optional<Inventory>>(inventoryService.getById(id), HttpStatus.OK);
     }
-    
+
 }
