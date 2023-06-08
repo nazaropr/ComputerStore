@@ -1,0 +1,78 @@
+<div class="container">
+  <h2>hello this is Store Page</h2>
+</div>
+<div ng-controller='testController'>
+  <section class="site-section py-sm">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="mb-4">Computer Store{{hello}}</h2>
+        </div>
+      </div>
+      <div class="row blog-entries">
+        <div class="col-md-12 col-lg-8 main-content">
+          <div class="row">
+            <div th:each="good : ${goods}" class="col-md-6">
+              <a href="" class="blog-entry element-animate fadeIn element-animated" data-animate-effect="fadeIn">
+                <img src="" alt="">
+                <div class="blog-content-body">
+                  <div class="post-meta">
+                    <span class="mr-2" th:text="${good.getCategory()}+ ' ' + ${good.getModelName()}"></span>
+                  </div>
+                  <h2 th:text="${good.getSellingPrice()}+'$'"></h2>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4 sidebar">
+
+          <div class="sidebar-box">
+            <h3 class="heading">Популярні дописи</h3>
+            <div class="post-entry-sidebar">
+              <ul>
+                <li>
+                  <a href="/articles/all/60-Things-To-Be-Thankful">
+                    <img src="/images/008.jpeg" alt="60 речей, за які варто бути вдячним у житті." class="mr-4">
+                    <div class="text">
+                      <h4>60 речей, за які варто бути вдячним у житті.</h4>
+                      <div class="post-meta">
+                        <span class="mr-2">15 грудня 2022</span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="/articles/all/top-11-bloggers-in-the-world">
+                    <img src="/images/001.jpg" alt="Топ 11 найкращих блогів, які надихнуть Ваше життя" class="mr-4">
+                    <div class="text">
+                      <h4>Топ 11 найкращих блогів, які надихнуть Ваше життя</h4>
+                      <div class="post-meta">
+                        <span class="mr-2">04 грудня 2022</span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="/articles/all/5-Kinds-of-Toxic-People">
+                    <img src="/images/003.jpeg" alt="5 типів токсичних людей, від яких вам негайно потрібно відсторонитися" class="mr-4">
+                    <div class="text">
+                      <h4>5 типів токсичних людей, від яких вам негайно потрібно відсторонитися</h4>
+                      <div class="post-meta">
+                        <span class="mr-2">06 грудня 2022</span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <p></p>
+
+</div>

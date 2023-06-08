@@ -1,0 +1,117 @@
+body{
+    color: white;
+    background: rgb(64,63,69);
+    background: linear-gradient(90deg, rgba(64,63,69,1) 0%, rgba(31,30,36,1) 48%);
+    margin-bottom: 60px;
+
+}
+a, h1, h2, h3, p, div{
+    color: white;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+th:nth-child(1){
+    text-align: center;
+}
+th:nth-child(6){
+    text-align: center;
+}
+th:nth-child(7){
+    text-align: center;
+}
+table{
+    background-color: #49484e;
+    width: 100%;
+}
+#addBtn{
+    width: max-content;
+    height: max-content;
+    background-color: #5571dc;
+    border: 0;
+}
+#addBtn:hover{
+    background-color: #2b4ec6;
+}
+#tableMargine{
+    background-color: #49484e;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+#headTable{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #49484e;
+    padding: 15px 25px;
+}
+#tableBody{
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px 35px;
+    background-color: #49484e;
+}
+#textAdmin{
+    font-family: cursive;
+    margin: 0;
+    line-height: 3;
+}
+#EditBtn{
+    width: max-content;
+    height: max-content;
+    background-color: #1ac68a;
+    border: 0;
+}
+#EditBtn:hover{
+    background-color: #118e62;
+}
+#DeleteBtn{
+    width: max-content;
+    height: max-content;
+    background-color: #ea4937;
+    border: 0;
+}
+#DeleteBtn:hover{
+    background-color: #b81809;
+}
+
+#addFields {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    body {
+        padding: 10px;
+    }
+
+    #headTable {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #addBtn, #EditBtn, #DeleteBtn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    table {
+        font-size: 14px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    form {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
+}
