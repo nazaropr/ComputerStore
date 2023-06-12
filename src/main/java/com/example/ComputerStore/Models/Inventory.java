@@ -19,6 +19,8 @@ public class Inventory {
     @Id
     private ObjectId id;
     @Field
+    private String idStr;
+    @Field
     private String category;
     @Field
     private String subCategory;
@@ -35,6 +37,7 @@ public class Inventory {
 
     public Inventory(String category, String manufacturer, String modelName, Integer purchasePrice, Integer sellingPrice, Integer quantityInStock){
         this.id = new ObjectId();
+        this.idStr = this.id.toString();
         this.category = category;
         this.manufacturer = manufacturer;
         this.modelName = modelName;
@@ -44,6 +47,7 @@ public class Inventory {
     }
     public Inventory(String category, String subCategory, String manufacturer, String modelName, Integer purchasePrice, Integer sellingPrice, Integer quantityInStock){
         this.id = new ObjectId();
+        this.idStr = this.id.toString();
         this.category = category;
         this.subCategory = subCategory;
         this.manufacturer = manufacturer;

@@ -1,0 +1,52 @@
+
+<div ng-controller='AddController' class="container">
+
+  <hr style="border-top: 2px solid black; margin: 0;">
+  <div id="addbody">
+    <form class="marginForm">
+      <fieldset>
+        <div class="form-group addFields">
+          <label>Category</label>
+          <input class="form-control" placeholder="Add Category" ng-model="add.category" type="text" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="form-group addFields">
+          <label >Sub сategory</label>
+          <input ng-model="add.subCategory" placeholder="Add Sub category(optional)" type="text" class="form-control">
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="form-group addFields">
+          <label >Manufacturer</label>
+          <input ng-model="add.manufacturer" placeholder="Add Manufacturer" type="text" class="form-control">
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="form-group addFields">
+          <label>Model</label>
+          <input ng-model="add.modelName" placeholder="Add Model" type="text" class="form-control">
+        </div>
+      </fieldset>
+      <div class="form-group addFields">
+        <label >Purchase price($)</label>
+        <input ng-model="add.purchasePrice" placeholder="Add Purchase price($)" type="number" class="form-control">
+      </div>
+      <div class="form-group addFields">
+        <label >Selling price($)</label>
+        <input ng-model="add.sellingPrice" placeholder="Add Selling price($)" type="number" class="form-control">
+      </div>
+      <div class="form-group addFields">
+        <label>Quantity in stock</label>
+        <input ng-model="add.quantityInStock" placeholder="Add Quantity in stock" type="number" class="form-control">
+      </div>
+      <div id="addheader">
+        <button class="btn btn-primary" type="submit" id="EditBtn" ng-click="addProduct()">Add Product</button>
+        <button class="btn btn-primary" type="submit" id="ClearBtn" ng-click="clearArea()">Clear</button>
+      </div>
+    </form>
+
+    <hr style="border-top: 2px solid black; margin: 0;">
+  </div>
+
+</div>

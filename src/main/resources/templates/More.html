@@ -1,43 +1,52 @@
 
 <div ng-controller='MoreController' class="container">
-        <div id="addheader">
-            <button class="btn btn-primary" type="submit" id="addBtn" ng-click="btnBack()">Back to list</button>
-            <button class="btn btn-primary" type="submit" id="EditBtn" ng-click="save()">Save article</button>
-        </div>
+
         <hr style="border-top: 2px solid black; margin: 0;">
         <div id="addbody">
-            <form>
+            <form class="marginForm">
                 <fieldset disabled>
-                    <div class="form-group" id="addFields">
+                    <div class="form-group addFields">
                         <label>Category</label>
                         <input class="form-control" placeholder="inp.url" ng-model="inp.category" type="text" />
                     </div>
                 </fieldset>
-                <div class="form-group">
-                    <label >sub сategory</label>
-                    <input ng-model="inp.subCategory" type="text" class="form-control">
+                <fieldset disabled ng-show="inp.subCategory !== null">
+                    <div class="form-group addFields">
+                        <label >sub сategory</label>
+                        <input ng-model="inp.subCategory" type="text" class="form-control">
+                    </div>
+                </fieldset>
+                <fieldset disabled>
+                    <div class="form-group addFields">
+                        <label >Manufacturer</label>
+                        <input ng-model="inp.manufacturer" type="text" class="form-control">
+                    </div>
+                </fieldset>
+                <fieldset disabled>
+                    <div class="form-group addFields">
+                        <label>Model</label>
+                        <input ng-model="inp.modelName" type="text" class="form-control">
+                    </div>
+                </fieldset>
+                <div class="form-group addFields">
+                    <label >Purchase price($)</label>
+                    <input ng-model="inp.purchasePrice" type="number" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label >Manufacturer</label>
-                    <input ng-model="inp.manufacturer" type="text" class="form-control">
+                <div class="form-group addFields">
+                    <label >Selling price($)</label>
+                    <input ng-model="inp.sellingPrice" type="number" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label>Model</label>
-                    <input ng-model="inp.modelName" type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label >Purchase price</label>
-                    <input ng-model="inp.purchasePrice" type="text" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label >Selling price</label>
-                    <input ng-model="inp.sellingPrice" type="text" class="form-control">
-                </div>
-                <div class="form-group">
+                <div class="form-group addFields">
                     <label>Quantity in stock</label>
-                    <input ng-model="inp.quantityInStock" type="text" class="form-control">
+                    <input ng-model="inp.quantityInStock" type="number" class="form-control">
+                </div>
+                <div id="addheader">
+                    <button class="btn btn-primary" type="submit" id="addBtn" ng-click="btnBack()">Back to list</button>
+                    <button class="btn btn-primary" type="submit" id="EditBtn" ng-click="save()">Save article</button>
                 </div>
             </form>
+
             <hr style="border-top: 2px solid black; margin: 0;">
         </div>
+
 </div>

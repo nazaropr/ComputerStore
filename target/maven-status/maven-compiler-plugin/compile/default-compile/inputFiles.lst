@@ -1,10 +1,11 @@
-F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\Controllers\RouteController.java
-F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\Models\MemoryDeviceFields.java
+F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\Repository\TransactionRepository.java
 F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\Models\Inventory.java
 F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\Repository\InventoryRepository.java
+F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\Models\Transaction.java
+F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\Controllers\TransactionController.java
+F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\Services\TransactionService.java
 F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\ComputerStoreApplication.java
 F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\Controllers\WebConfig.java
-F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\Models\Fields_.java
-F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\Models\inputDeviceField.java
+F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\Models\Report.java
 F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\Controllers\InventoryController.java
 F:\POLITECH\6_sem\крос-платформенне\CourseWork\src\main\java\com\example\ComputerStore\Services\InventoryService.java

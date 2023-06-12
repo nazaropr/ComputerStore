@@ -3,7 +3,9 @@
   <div ng-controller='TableController' class="container" id="tableMargine">
     <div id="headTable">
       <p id="textAdmin">Computer Store</p>
-      <button class="btn btn-primary" type="submit" id="addBtn" ng-click="">Add new product</button>
+      <div>
+        <button class="btn btn-primary" type="submit" id="addBtn" ng-click="addNew()">Add new product</button>
+      </div>
     </div>
     <hr style="border-top: 2px solid #dddddd; margin: 0;">
     <div id="tableBody">
@@ -18,7 +20,8 @@
             <span class="material-symbols-outlined" ng-show="">arrow_drop_up</span>-->
           </th>
           <th>Selling price</th>
-          <th>Is Available</th>
+          <th>Amount(click to sell)</th>
+          <th>add to stock</th>
           <th>More</th>
           <th>Delete</th>
         </tr>
@@ -32,19 +35,31 @@
               {{inventory.category}}
           </td>
           <td>
-            {{inventory.modelName}}
+            <span ng-if="inventory.subCategory !== null">
+                {{ inventory.subCategory }} {{ inventory.modelName }}
+            </span>
+            <span ng-if="inventory.subCategory === null">
+                {{ inventory.modelName }}
+            </span>
           </td>
           <td>
             {{inventory.sellingPrice}}$
           </td>
-          <td>
-            {{inventory.quantityInStock > 0}}
+          <td class="centered">
+            <a id="amount" ng-click="showModal(inventory)">
+              {{inventory.quantityInStock}}
+            </a>
           </td>
-          <td>
-            <button ng-click="edit(inventory)" id="EditBtn" class="btn btn-primary">More</button>
+          <td class="centered">
+            <span ng-click="addProductTo(inventory)" class="material-symbols-outlined iconAddTo">add_circle</span>
           </td>
-          <td>
-            <button ng-click="delete(inventory)" id="DeleteBtn" class="btn btn-primary">Delete</button>
+          <td class="centered">
+              <span ng-click="edit(inventory)" class="material-symbols-outlined readMore">read_more</span>
+            <!--<button ng-click="edit(inventory)" id="EditBtn" class="btn btn-primary">More</button>-->
+          </td>
+          <td class="centered">
+              <span ng-click="delete(inventory)" class="material-symbols-outlined icon-delete">delete</span>
+            <!--<button ng-click="delete(inventory)" id="DeleteBtn" class="btn btn-primary">Delete</button>-->
           </td>
         </tr>
         </tbody>

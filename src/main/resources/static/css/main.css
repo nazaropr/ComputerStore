@@ -13,6 +13,7 @@ td, th {
     text-align: left;
     padding: 8px;
 }
+
 th:nth-child(1){
     text-align: center;
 }
@@ -78,40 +79,57 @@ table{
 #DeleteBtn:hover{
     background-color: #b81809;
 }
-
-#addFields {
+.addFields{
+    margin-top: 1rem !important;
     width: 100%;
 }
+.marginForm{
+    max-width: 650px;
+    margin: 0 auto;
+}
+#addheader{
+    margin-top: 23px;
+}
+#amount{
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+#amount:hover{
+    color: goldenrod;
+}
 
-@media (max-width: 767px) {
-    body {
-        padding: 10px;
-    }
+.icon-delete {
+    cursor: pointer;
+    color: darkgray;
+    transition: color 0.3s;
+}
 
-    #headTable {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.icon-delete:hover {
+    color: #f00;
+    cursor: pointer;
+}
+.readMore {
+    cursor: pointer;
+    color: darkgray;
+    transition: color 0.3s;
+}
 
-    #addBtn, #EditBtn, #DeleteBtn {
-        width: 100%;
-        margin-bottom: 10px;
-    }
+.readMore:hover {
+    color: mediumspringgreen;
+    cursor: pointer;
+}
+.iconAddTo {
+    cursor: pointer;
+    color: darkgray;
+    transition: color 0.3s;
+}
 
-    table {
-        font-size: 14px;
-        width: 100%;
-        margin-bottom: 10px;
-    }
+.iconAddTo:hover {
+    color: #5571dc;
+    cursor: pointer;
+}
 
-    form {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    input[type="text"] {
-        width: 100%;
-        padding: 5px;
-        margin-bottom: 10px;
-    }
+.centered {
+    text-align: center;
 }
