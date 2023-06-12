@@ -6,11 +6,13 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 
 @XmlRootElement(name = "report")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Report {
+
     @XmlElement
     private BigDecimal totalSales;
 
@@ -61,4 +63,5 @@ public class Report {
     public BigDecimal getTotalSales() {
         return totalSales;
     }
+
 }
