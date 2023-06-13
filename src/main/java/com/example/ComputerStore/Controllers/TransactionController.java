@@ -6,6 +6,7 @@ import com.example.ComputerStore.Services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -97,40 +98,50 @@ public class TransactionController {
         return new ResponseEntity<>(sw.toString(), HttpStatus.OK);
     }
 /***/
-@GetMapping("/report/profit-by-category")
-public ResponseEntity<String> getProfitByCategoryReport(
-        @RequestParam String period,
-        @RequestParam String startDate,
-        @RequestParam(required = false) String endDate,
-        @RequestParam(required = false) String category) throws Exception {
 
-    LocalDate start = LocalDate.parse(startDate);
-    LocalDateTime endDateTime;
+    @GetMapping("/report/profit-by-category/month")
+    public ResponseEntity<String> getProfitByCategoryReportByMonth(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String endDate,
+            @RequestParam String category) throws Exception {
 
-    if (endDate != null) {
-        endDateTime = LocalDateTime.parse(endDate + "T23:59:59");
-    } else {
-        endDateTime = LocalDateTime.of(start, LocalTime.MAX);
+        LocalDate start = LocalDate.parse(startDate);
+        LocalDate end = LocalDate.parse(endDate);
+
+        Map<String, BigDecimal> profitByCategory = transactionService.getProfitByCategoryByPeriod(start, end, category);
+
+        if (profitByCategory.isEmpty()) {
+            Report report = new Report();
+            Map<String, BigDecimal> emptyProfitByCategory = new HashMap<>();
+            emptyProfitByCategory.put(category, BigDecimal.ZERO);
+            report.setProfitByCategory(emptyProfitByCategory);
+            report.setPeriod(startDate + " to " + endDate);
+
+            // Серіалізація звіту в XML
+            StringWriter sw = new StringWriter();
+            JAXBContext context = JAXBContext.newInstance(Report.class);
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            marshaller.marshal(report, sw);
+
+            // Повернення відповіді з серіалізованим звітом
+            return ResponseEntity.ok().contentType(MediaType.APPLICATION_XML).body(sw.toString());
+        }
+
+        Report report = new Report();
+        report.setProfitByCategory(profitByCategory);
+        report.setPeriod(startDate + " to " + endDate);
+
+        // Серіалізація звіту в XML
+        StringWriter sw = new StringWriter();
+        JAXBContext context = JAXBContext.newInstance(Report.class);
+        Marshaller marshaller = context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        marshaller.marshal(report, sw);
+
+        // Повернення відповіді з серіалізованим звітом
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_XML).body(sw.toString());
     }
-
-    if (start.equals(endDateTime.toLocalDate())) {
-        endDateTime = endDateTime.withHour(23).withMinute(59).withSecond(59);
-    }
-
-    Map<String, BigDecimal> profitByCategory = transactionService.getProfitByCategoryByPeriod(start, endDateTime.toLocalDate(), category);
-
-    Report report = new Report();
-    report.setProfitByCategory(profitByCategory);
-    report.setPeriod(start + " to " + endDateTime.toLocalDate());
-
-    StringWriter sw = new StringWriter();
-    JAXBContext context = JAXBContext.newInstance(Report.class);
-    Marshaller marshaller = context.createMarshaller();
-    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-    marshaller.marshal(report, sw);
-
-    return new ResponseEntity<>(sw.toString(), HttpStatus.OK);
-}
 
 
 

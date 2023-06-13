@@ -13,6 +13,9 @@ app.config(function ($routeProvider) {
         .when('/store', {
             templateUrl: '/templates/StorePage.html'
         })
+        .when('/report', {
+            templateUrl: '/templates/ReportPage.html'
+        })
         .otherwise({
             redirectTo: '/table'
         });
@@ -231,3 +234,72 @@ app.controller('StoreController', function ($scope, $http, $location) {
         });
 })
 
+app.controller('ReportController', function ($scope, $http){
+
+    $scope.period = ''; // період (day, week, month)
+    $scope.startDate = ''; // початкова дата
+    $scope.endDate = ''; // кінцева дата
+    $scope.category = ''; // категорія
+
+   /* $scope.getTotalSalesReport = function() {
+        var url = '/api/inventory/report/total-sales/' + $scope.period;
+        var params = {};
+
+        if ($scope.period === 'day') {
+            params.period = new Date($scope.startDate).toISOString().split('T')[0];
+        } else if ($scope.period === 'week') {
+            params.startDate = new Date($scope.startDate).toISOString().split('T')[0];
+            params.endDate = new Date($scope.endDate).toISOString().split('T')[0];
+        } else if ($scope.period === 'month') {
+            params.startDate = new Date($scope.startDate).toISOString().split('T')[0];
+            params.endDate = new Date($scope.endDate).toISOString().split('T')[0];
+        }*/
+        $scope.totalSales = ''; // змінна для збереження загального обсягу продажів
+
+        $scope.getTotalSalesReport = function () {
+            var url = '/api/inventory/report/total-sales/week';
+            var params = {
+                startDate: new Date($scope.startDate).toISOString().split('T')[0],
+                endDate: new Date($scope.endDate).toISOString().split('T')[0]
+            };
+
+            $http.get(url, {params: params})
+                .then(function (response) {
+                    var xmlReport = response.data;
+                    console.log("xmlReport: " + xmlReport);
+
+                    // Опційно: переконайтеся, що ви отримуєте очікувані значення з сервера, перевіривши консоль
+                    var parser = new DOMParser();
+                    var xmlDoc = parser.parseFromString(xmlReport, "text/xml");
+                    var totalSales = xmlDoc.querySelector("totalSales").textContent;
+                    console.log("totalSales: " + totalSales);
+
+                    $scope.totalSales = totalSales;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        };
+
+        $scope.getProfitByCategoryReportByMonth = function () {
+            var url = '/api/inventory/report/profit-by-category/month';
+            var params = {
+                startDate: new Date($scope.startDate).toISOString().split('T')[0],
+                endDate: new Date($scope.endDate).toISOString().split('T')[0],
+                category: $scope.category
+            };
+
+            $http.get(url, {params: params})
+                .then(function (response) {
+                    // Обробка успішної відповіді
+                    var xmlData = response.data;
+                    // Розпарсити XML-дані та виконати необхідну обробку
+                    // ...
+                })
+                .catch(function (error) {
+                    // Обробка помилки
+                    console.error('Помилка при отриманні звіту:', error);
+                });
+        };
+
+})

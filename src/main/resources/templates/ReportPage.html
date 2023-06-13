@@ -1,0 +1,46 @@
+<div ng-controller="ReportController">
+<h1>Total Sales Report</h1>
+
+<div>
+  <label for="period">Period:</label>
+  <select id="period" ng-model="period">
+    <option value="day">Day</option>
+    <option value="week">Week</option>
+    <option value="month">Month</option>
+  </select>
+</div>
+
+<div ng-show="period === 'day'">
+  <label for="startDate">Date:</label>
+  <input type="date" id="startDate" ng-model="startDate">
+</div>
+
+<div ng-show="period === 'week' || period === 'month'">
+  <label for="startDate">Start Date:</label>
+  <input type="date" class="startDate" ng-model="startDate">
+
+  <label for="endDate">End Date:</label>
+  <input type="date" id="endDate" ng-model="endDate">
+</div>
+
+<button ng-click="getTotalSalesReport()">Get Report</button>
+
+<h1>Profit by Category Report</h1>
+
+<div>
+  <label for="category">Category:</label>
+  <input type="text" id="category" ng-model="category">
+</div>
+
+<div>
+  <label for="startDate">Start Date:</label>
+  <input type="date" class="startDate" ng-model="startDate">
+
+  <label for="endDate">End Date:</label>
+  <input type="date" class="endDate" ng-model="endDate">
+</div>
+
+<button ng-click="getProfitByCategoryReportByMonth()">Get Report</button>
+
+  <div>{{totalSales}}</div>
+</div>
