@@ -135,24 +135,4 @@ public class TransactionService {
 
         return profitByCategory;
     }
-    public Map<String, BigDecimal> getProfitByCategoryByDay(LocalDate selectedDate, String category) {
-        List<Transaction> transactions = transactionRepository.findByDateAndCategory(selectedDate, category);
-
-        Map<String, BigDecimal> profitByCategory = new HashMap<>();
-
-        for (Transaction transaction : transactions) {
-            BigDecimal profit = BigDecimal.valueOf(transaction.getProfit());
-
-            if (profitByCategory.containsKey(transaction.getCategory())) {
-                BigDecimal totalProfit = profitByCategory.get(transaction.getCategory()).add(profit);
-                profitByCategory.put(transaction.getCategory(), totalProfit);
-            } else {
-                profitByCategory.put(transaction.getCategory(), profit);
-            }
-        }
-
-        return profitByCategory;
-    }
-
-
 }

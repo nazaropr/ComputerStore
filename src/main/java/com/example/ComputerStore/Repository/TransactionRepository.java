@@ -13,5 +13,4 @@ import java.util.List;
 public interface TransactionRepository extends MongoRepository<Transaction, ObjectId> {
     List<Transaction> findByDateBetween(LocalDateTime startDate, LocalDateTime endDate);
     List<Transaction> findByDateBetweenAndCategory(LocalDateTime startDate, LocalDateTime endDate, String category);
-    List<Transaction> findByDateAndCategory(LocalDate date, String category);
 }

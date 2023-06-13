@@ -35,33 +35,8 @@ public class Report {
         this.period = period;
     }
 
-    public String getPeriod() {
-        return period;
-    }
-
-    public void setGeneratedBy(String generatedBy) {
-        this.generatedBy = generatedBy;
-    }
-
-    public String getGeneratedBy() {
-        return generatedBy;
-    }
-
-    public BigDecimal getTotalProfit() {
-        BigDecimal totalProfit = BigDecimal.ZERO;
-        for (BigDecimal profit : profitByCategory.values()) {
-            totalProfit = totalProfit.add(profit);
-        }
-        return totalProfit;
-    }
-
-
     public void setTotalSales(BigDecimal totalSales) {
         this.totalSales = totalSales;
-    }
-
-    public BigDecimal getTotalSales() {
-        return totalSales;
     }
 
 }
